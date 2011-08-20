@@ -12,6 +12,7 @@
     .row .black { background: #1F0A0A; width: 220px }
     .row .red { background: #DB1F64 }
     .row .gold { background: #F7D53E }
+    .menu_space { float: left; width: 90px; height:10px }
     #script-tag .input { margin: 0 }
     #script-tag span { display: inline; padding: 4px 20px; margin-right: 10px }
     .hidden { display: none }
@@ -75,15 +76,11 @@
   </div>
 
   <div class='row'>
-    <div class='span4 columns'><h6>What</h6></div>
-    <div class='span12 columns'><h6>Try</h6></div>
-  </div>
-
-  <div class='row'>
     <div class='span4 columns'>
-      <h5>No transactions</h5>
+      <h6>What</h6>
+      <h5>Persistent across websites</h5>
       <h5>No security</h5>
-      <h5>Data is shared</h5>
+      <h5>Under 500 bytes</h5>
       <h5>2 operations: <code>get</code>/<code>set</code></h5>
     </div>
 
@@ -91,7 +88,12 @@
       <ul class='tabs'>
         <li class='active'><a href='#' id='get_menu'>GET</a></li>
         <li><a href='#' id='set_menu'>SET</a></li>
+        <li><span class='menu_space'></span></li>
         <li><a href='#' id='readme_menu'>README</a></li>
+        <li><a href='#' id='why_menu'>WHY?</a></li>
+        <li><a href='#' id='faq_menu'>FAQ</a></li>
+        <li><span class='menu_space'></span></li>
+        <li><a href='#' id='dummy_menu'>FOR DUMMIES</a></li>
       </ul>
       <div id='get_menu_tab'>
         <form id='get_form'>
@@ -104,8 +106,7 @@
           <pre>
 Rasta.get('<span id='get_key'>age</span>', function(val){
   /* val == '<span id='get_val'>100</span>' */
-})
-          </pre>
+})</pre>
         </form>
       </div>
       <div id='set_menu_tab' class='hidden'>
@@ -143,10 +144,49 @@ Rasta.get('some_key', function(val){
   /* use val */
 }, function(){
   /* error occured */
-})
-        </pre>
+})</pre>
 
       </div>
+
+      <div id='why_menu_tab' class='hidden'>
+        <p>Data store for static websites</p>
+        <p>Communication between front-ends</p>
+        <p>A building block</p>
+        <p>A simple, easy to implement API (just 2 endpoints):</p>
+        <pre>
+GET /get/{key}?callback=?
+and
+GET /set/{key}/{val}?callback=?</pre>
+      </div>
+
+      <div id='faq_menu_tab' class='hidden'>
+        <h4><i>How much storage?</i></h4>
+        <p>Unspecified by design. Let's say 5 MB.</p>
+        <h4><i>What happens after?</i></h4>
+        <p>Old keys are invalidated. Strategy unspecified, could be LRU, LFU, etc.</p>
+        <h4><i>Why HTTP <code>GET</code> for setting?</i></h4>
+        <p>Because JSON-P doesn't support POST.</p>
+        <small>Message <code>github.com/pitr</code> for more questions</small>
+      </div>
+
+      <div id='dummy_menu_tab' class='hidden'>
+        <h4>Wait. What's this again?</h4>
+        <p>
+          This is a key-value date store (something like Memcache or Redis)
+          that you can access from browser's front-end (like HTML5
+          localStorage), except you do not host it yourself.
+        </p>
+        <p>
+          By simply including provided script tag, you get a tiny library that
+          communicates with the data store. You get
+          <ol>
+            <li><code>Rasta.get(key, cb(), err())</code>,</li>
+            <li><code>Rasta.set(key, val, cb(), err())</code>, and</li>
+            <li><code>Rasta.url=</code> (initialized to "http://rastajs.errorjs.com")</li>
+          </ol>
+        </p>
+      </div>
+
     </div>
   </div>
 
