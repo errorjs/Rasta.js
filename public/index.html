@@ -17,6 +17,7 @@
     #script-tag span { display: inline; padding: 4px 20px; margin-right: 10px }
     .hidden { display: none }
     #tabs { min-height: 330px }
+    #plusonebutton { margin-left: 40px; margin-top: 30px; }
   </style>
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -82,6 +83,7 @@
       <h5>No security</h5>
       <h5>Under 500 bytes</h5>
       <h5>2 operations: <code>get</code>/<code>set</code></h5>
+      <div id="plusonebutton"><g:plusone count="false"></g:plusone></div>
     </div>
 
     <div class='span12 columns' id='tabs'>
@@ -264,6 +266,12 @@ GET /set/{key}/{val}?callback=?</pre>
   })
 </script>
 
-
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 </body>
 </html>
