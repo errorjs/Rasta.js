@@ -30,7 +30,7 @@
   }
 
   window.Rasta = r = {
-    url:'http://rasta.errorjs.com',
+    url:'http://rastajs.errorjs.com',
     valid:function(k){ return k.replace(/[ ?\/]/g,'').substring(0,250) },
     get:function(k,c,e){ return j('/get/'+this.valid(k)+'?callback=',c,e) },
     set:function(k,v,c,e){ return j('/set/'+this.valid(k)+'/'+this.valid(v)+'?callback=',c,e) }
