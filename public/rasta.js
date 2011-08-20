@@ -32,7 +32,8 @@
   window.Rasta = r = {
     url:'http://rastajs.errorjs.com',
     valid:function(k){ return k.replace(/[ ?\/]/g,'').substring(0,250) },
-    get:function(k,c,e){ return j('/get/'+this.valid(k)+'?callback=',c,e) },
-    set:function(k,v,c,e){ return j('/set/'+this.valid(k)+'/'+this.valid(v)+'?callback=',c,e) }
+    ts:function(){return parseInt(new Date().getTime() / 1000)},
+    get:function(k,c,e){ return j('/get/'+this.valid(k)+'?ts='+this.ts()+'&callback=',c,e) },
+    set:function(k,v,c,e){ return j('/set/'+this.valid(k)+'/'+this.valid(v)+'?ts='+this.ts()+'&callback=',c,e) }
   }
 })(document, window)
