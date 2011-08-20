@@ -1,0 +1,10 @@
+{
+  "name": "rastajs",
+  "version": "0.4.2",
+  "dependencies": {
+    "connect": ">= 1.0.0",
+    "connect-jsonp": ">= 0",
+    "hiredis": ">=0",
+    "redis-url": ">=0"
+  }
+}

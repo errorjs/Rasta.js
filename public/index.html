@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <title>Rasta.js</title>
+  <link rel='stylesheet' href='http://twitter.github.com/bootstrap/assets/css/bootstrap-1.0.0.min.css'>
+  <style type='text/css' media='screen'>
+    .masthead { height: 200px; margin-bottom: 20px }
+    .footer { height: 50px; margin-top: 20px; }
+    .masthead div, .footer div { height: 100%; width: 180px; float:left }
+    .row .green { background: #76B524 }
+    .row .black { background: #1F0A0A; width: 220px }
+    .row .red { background: #DB1F64 }
+    .row .gold { background: #F7D53E }
+    #script-tag .input { margin: 0 }
+    #script-tag span { display: inline; padding: 4px 20px; margin-right: 10px }
+    .hidden { display: none }
+    #tabs { min-height: 330px }
+  </style>
+</head>
+<body>
+
+<div class='container'>
+  <div class='row masthead'>
+    <div class='green'></div>
+    <div class='black'></div>
+    <div class='red'></div>
+    <div class='gold'></div>
+    <div class='green'></div>
+  </div>
+  <div class='page-header'>
+    <h1>
+      Rasta.js
+      <small>ACID-less anonymous public cross-domain key-value data store</small>
+    </h1>
+  </div>
+  <div class='row' id='script-tag'>
+    <h6>Setup</h6>
+    <form>
+    <div class='input'>
+      <span class='uneditable-input'>
+        &lt;script src=&#39;http://rasta.errorjs.com/rasta.min.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;
+      </span>
+      <object classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' width='110' height='14' id='clippy'>
+        <param name='movie' value='/clippy.swf' />
+        <param name='allowScriptAccess' value='always' />
+        <param name='quality' value='high' />
+        <param name='scale' value='noscale' />
+        <param NAME='FlashVars' value='text=&lt;script src=&#39;http://rasta.errorjs.com/rasta.min.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;' />
+        <param name='bgcolor' value='#FFFFFF'>
+        <embed src='/clippy.swf'
+          width='110'
+          height='14'
+          name='clippy'
+          quality='high'
+          allowScriptAccess='always'
+          type='application/x-shockwave-flash'
+          pluginspage='http://www.macromedia.com/go/getflashplayer'
+          FlashVars='text=&lt;script src=&#39;http://rasta.errorjs.com/rasta.min.js&#39; type=&#39;text/javascript&#39;&gt;&lt;/script&gt;'
+          bgcolor='#FFFFFF'
+          />
+      </object>
+    </div>
+    </form>
+  </div>
+
+  <div class='row'>
+    <div class='span4 columns'><h6>What</h6></div>
+    <div class='span12 columns'><h6>Try</h6></div>
+  </div>
+
+  <div class='row'>
+    <div class='span4 columns'>
+      <h5>No transactions</h5>
+      <h5>No security</h5>
+      <h5>Data is shared</h5>
+      <h5>2 operations: <code>get</code>/<code>set</code></h5>
+    </div>
+
+    <div class='span12 columns' id='tabs'>
+      <ul class='tabs'>
+        <li class='active'><a href='#' id='get_menu'>GET</a></li>
+        <li><a href='#' id='set_menu'>SET</a></li>
+        <li><a href='#' id='readme_menu'>README</a></li>
+      </ul>
+      <div id='get_menu_tab'>
+        <form id='get_form'>
+          <label for='get_key_input'>Enter key:</label>
+          <div class='input input-prepend clearfix'>
+            <span class='add-on'>key</span>
+            <input class='medium' id='get_key_input' name='get_key_input' value='age' size='16' type='text' />
+            <a class='btn primary' id='get_submit' href='#'>GET</a>
+          </div>
+          <pre>
+Rasta.get('<span id='get_key'>age</span>', function(val){
+  /* val == '<span id='get_val'>100</span>' */
+})
+          </pre>
+        </form>
+      </div>
+      <div id='set_menu_tab' class='hidden'>
+        <form id='set_form'>
+          <label for='set_key_input'>Enter key:</label>
+          <div class='input input-prepend clearfix'>
+            <span class='add-on'>key</span>
+            <input class='medium' id='set_key_input' name='set_key_input' value='age' size='16' type='text' />
+          </div>
+          <label for='set_val_input'>Enter value:</label>
+          <div class='input input-prepend clearfix'>
+            <span class='add-on'>val</span>
+            <input class='medium' id='set_val_input' name='set_key_input' value='100' size='16' type='text' />
+            <a class='btn primary' id='set_submit' href='#'>SET</a>
+          </div>
+          <pre>
+Rasta.set('<span id='set_key'>age</span>','<span id='set_val'>100</span>', function(){
+  /* <span id='set_result'>    </span> */
+})
+          </pre>
+        </form>
+      </div>
+      <div id='readme_menu_tab' class='hidden'>
+
+        <p>
+          Keys and values are limited to 250 ASCII characters,
+          excluding <code>space</code>, <code>newline</code>, <code>?</code> and <code>/</code>
+        </p>
+
+        <p>JSON-P is used for cross-domain communication</p>
+
+        <p>Optional second callback will be called on error</p>
+        <pre>
+Rasta.get('some_key', function(val){
+  /* use val */
+}, function(){
+  /* error occured */
+})
+        </pre>
+
+      </div>
+    </div>
+  </div>
+
+  <div class='row footer'>
+    <div class='green'></div>
+    <div class='black'></div>
+    <div class='red'></div>
+    <div class='gold'></div>
+    <div class='green'></div>
+  </div>
+
+</div>
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js' type='text/javascript' charset='utf-8'></script>
+<script src='/rasta.min.js' type='text/javascript' charset='utf-8'></script>
+<script type='text/javascript' charset='utf-8'>
+  $(function(){
+    var $get_key        = $('#get_key'),
+        $get_val        = $('#get_val'),
+        $get_key_input  = $('#get_key_input'),
+        $set_key        = $('#set_key'),
+        $set_val        = $('#set_val'),
+        $set_key_input  = $('#set_key_input'),
+        $set_val_input  = $('#set_val_input'),
+        $set_result     = $('#set_result')
+    $('.tabs a').click(function(){
+      var type = $(this).attr('id')
+      $(this)
+        .parent() // li
+        .addClass('active')
+        .siblings().removeClass('active')
+        .parent().nextAll() // divs and forms
+        .fadeOut()
+        .promise().done(function(){
+          $('#' + type + '_tab').fadeIn()
+        })
+      return false
+    })
+    // GET
+    $('#get_key_input').keyup(function(){
+      $get_key.html(Rasta.valid($get_key_input.val()))
+    })
+    $('#get_submit').click(function(){
+      $('#get_form').submit()
+      return false
+    })
+    $('#get_form').submit(function(){
+      Rasta.get($get_key_input.val(), function(val){
+        $get_val.html(val)
+      })
+      return false
+    })
+    // SET
+    $('#set_key_input').keyup(function(){
+      $set_key.html(Rasta.valid($set_key_input.val()))
+    })
+    $('#set_val_input').keyup(function(){
+      $set_val.html(Rasta.valid($set_val_input.val()))
+    })
+    $('#set_submit').click(function(){
+      $('#set_form').submit()
+      return false
+    })
+    $('#set_form').submit(function(){
+      $set_result.html('    ')
+      Rasta.set($set_key_input.val(), $set_val_input.val(), function(){
+        $set_result.html('done').fadeTo('fast', 0.33, function(){$set_result.fadeTo('fast', 1)})
+      })
+      return false
+    })
+  })
+</script>
+
+
+</body>
+</html>
