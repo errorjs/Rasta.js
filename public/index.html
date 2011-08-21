@@ -162,10 +162,10 @@ GET /set/{key}/{val}?callback=?</pre>
       </div>
 
       <div id='faq_menu_tab' class='hidden'>
+        <h4><i>Wheres the data stored?</i></h4>
+        <p>By default, my server (well, heroku at the moment). If you want to host your own, just change <code>Rasta.url</code>.</p>
         <h4><i>How much storage?</i></h4>
-        <p>Unspecified by design. Let's say 5 MB.</p>
-        <h4><i>What happens after?</i></h4>
-        <p>Old keys are invalidated. Strategy unspecified, could be LRU, LFU, etc.</p>
+        <p>Unspecified by design. Let's say 5 MB. Old keys are invalidated. Strategy unspecified, could be LRU, LFU, etc.</p>
         <h4><i>Why HTTP <code>GET</code> for setting?</i></h4>
         <p>Because JSON-P doesn't support POST.</p>
         <small>Message <code>github.com/pitr</code> for more questions</small>
