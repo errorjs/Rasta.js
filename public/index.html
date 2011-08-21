@@ -5,6 +5,7 @@
   <title>Rasta.js</title>
   <link rel='stylesheet' href='http://twitter.github.com/bootstrap/assets/css/bootstrap-1.0.0.min.css'>
   <style type='text/css' media='screen'>
+    body { margin-top: 0 }
     .masthead { height: 200px; margin-bottom: 20px }
     .footer { height: 50px; margin-top: 20px; }
     .masthead div, .footer div { height: 100%; width: 180px; float:left }
@@ -162,7 +163,7 @@ GET /set/{key}/{val}?callback=?</pre>
       </div>
 
       <div id='faq_menu_tab' class='hidden'>
-        <h4><i>Wheres the data stored?</i></h4>
+        <h4><i>Where's the data stored?</i></h4>
         <p>By default, my server (well, heroku at the moment). If you want to host your own, just change <code>Rasta.url</code>.</p>
         <h4><i>How much storage?</i></h4>
         <p>Unspecified by design. Let's say 5 MB. Old keys are invalidated. Strategy unspecified, could be LRU, LFU, etc.</p>
