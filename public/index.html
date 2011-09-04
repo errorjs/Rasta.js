@@ -219,7 +219,7 @@ GET /set/{key}/{val}?callback=?</pre>
         $set_result     = $('#set_result')
     $('a').click(function(){
       var action = $(this).html()
-      _gaq.push(['_trackEvent', action])
+      _gaq.push(['_trackEvent', 'click', action])
     })
     $('.tabs a').click(function(){
       var type = $(this).attr('id')
